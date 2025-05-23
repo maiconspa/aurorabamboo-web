@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e6c13ad2.css",
+    "main.js": "/static/js/main.f198e8d9.js",
+    "static/js/453.8b76d82c.chunk.js": "/static/js/453.8b76d82c.chunk.js",
+    "static/media/aurorabamboo-rounded-icon.svg": "/static/media/aurorabamboo-rounded-icon.63a5d9aa91bff99021f1eabcfd17a2c6.svg",
+    "index.html": "/index.html",
+    "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
+    "main.f198e8d9.js.map": "/static/js/main.f198e8d9.js.map",
+    "453.8b76d82c.chunk.js.map": "/static/js/453.8b76d82c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.f198e8d9.js"
+  ]
+}

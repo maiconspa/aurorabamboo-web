@@ -1,0 +1,8 @@
+{
+  "short_name": "Aurora Bamboo",
+  "name": "Aurora Bamboo Website",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#43714E",
+  "background_color": "#ffffff"
+}
