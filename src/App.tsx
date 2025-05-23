@@ -3,7 +3,7 @@ import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import styled from 'styled-components';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { ReactComponent as LogoSVG } from "./assets/abelhapsi-icon.svg"
+import { ReactComponent as LogoSVG } from "./assets/aurorabamboo-rounded-icon.svg"
 import {GlobalStyle} from "./globalStyles";
 
 const LandingPageContainer = styled.div`
@@ -96,13 +96,10 @@ const App: React.FC = () => {
       <LandingPageContainer>
         <GranulationOverlay />
         <Logo />
-        <Title>Abelha Psi</Title>
+        <Title>Aurora bamboo</Title>
         <IconRow>
-          <a href="https://www.instagram.com/abelhapsi/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/aurora.bamboo/" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faInstagram} />
-          </a>
-          <a href="https://www.linkedin.com/company/abelhapsi/" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faLinkedin} />
           </a>
         </IconRow>
         <PostsContainer>
