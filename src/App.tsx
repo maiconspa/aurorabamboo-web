@@ -1,10 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram, faLinkedin, faTiktok, faWebAwesome } from '@fortawesome/free-brands-svg-icons';
 import styled from 'styled-components';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { ReactComponent as LogoSVG } from "./assets/aurorabamboo-rounded-icon.svg"
 import {GlobalStyle} from "./globalStyles";
+import { url } from 'inspector';
 
 const LandingPageContainer = styled.div`
   display: flex;
@@ -12,38 +13,40 @@ const LandingPageContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: radial-gradient(circle, rgba(255,255,255,0.8), rgba(0,0,0,0.1));
+  background: url('/assets/background.png');
   backdrop-filter: blur(8px);
   position: relative;
 `;
 
-const GranulationOverlay = styled.div`
+const Background = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('/path-to-grain-image.png'); // Use uma textura de granulação leve
-  opacity: 0.5;
+  background: url('/assets/background.png'); // Use uma textura de granulação leve
+  opacity: 0.2;
   pointer-events: none;
 `;
 
 const Logo = styled(LogoSVG)`
   width: 150px;
+  height: 150px;
   margin-bottom: 20px;
 `;
 
 const Title = styled.h1`
   font-size: 2rem;
-  margin-bottom: 30px;
+  padding: 0 20px;
   color: #333;
-font-weight: bold;
+  font-weight: bold;
 `;
 
 const IconRow = styled.div`
   display: flex;
+  margin: 30px 0 0 0;
+  justify-content: center;
   gap: 20px;
-  margin-bottom: 40px;
 
   a {
     color: #333;
@@ -56,64 +59,81 @@ const IconRow = styled.div`
   }
 `;
 
-const PostsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+const CenterContainer = styled.div`
+  display: contents;
   justify-content: center;
-`;
+`
 
-const PostCard = styled.div`
-  width: 300px;
-  height: 400px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-`;
+const Card = styled.div`
+  display: block;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgba(234, 220, 197, 0.8);
+  margin: 0 0 20px 0;
+`
 
 const App: React.FC = () => {
+  const SocialNetworks = [
+    {
+      icon: faInstagram,
+      url: "https://www.instagram.com/aurora.bamboo/"
+    },
+    {
+      icon: faFacebook,
+      url: "https://www.facebook.com/share/19AMEWTsAs/?mibextid=wwXIfr"
+    },
+    {
+      icon: faTiktok,
+      url: "https://www.tiktok.com/@aurora.bamboo?_t=ZM-8y7SUTg90eT&_r=1"
+    }
+  ]
 
+  const Linkinho = styled.a`
+    color: #000;
+    font-size: 1.5em;
+  `
 
-    // Dentro do seu componente
-    const [posts, setPosts] = useState<any[]>([]);
+  const renderLinks = () => {
+    const list:any = []
 
-    useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                const response = await axios.get('URL_DA_API_INSTAGRAM');
-                setPosts(response.data.data);
-            } catch (error) {
-                console.error("Erro ao buscar posts", error);
-            }
-        };
+    SocialNetworks.map(item => {
+      list.push(
+        <a href={item.url} target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={item.icon} />
+        </a>)
+    })
 
-        fetchPosts();
-    }, []);
+    return list
+  }
 
-
-    return (<>
-        <GlobalStyle />
-      <LandingPageContainer>
-        <GranulationOverlay />
+  return (<>
+      <GlobalStyle />
+    <LandingPageContainer>
+      <CenterContainer>
         <Logo />
-        <Title>Aurora bamboo</Title>
-        <IconRow>
-          <a href="https://www.instagram.com/aurora.bamboo/" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-        </IconRow>
-        <PostsContainer>
-            {posts?.map(post => (
-                <PostCard key={post.id}>
-                    <img src={post.media_url} alt={post.caption} />
-                    <p>{post.caption}</p>
-                </PostCard>
-            ))}
 
-        </PostsContainer>
-      </LandingPageContainer>
-    </>
-  );
+        <Card>
+          <Title>Aurora Bamboo</Title>
+          <IconRow>
+            { renderLinks() }
+          </IconRow>
+        </Card>
+        
+        <Card>
+          <Linkinho href="https://www.heyzine.com/flip-book/bdb7ef35ab.html" target="_blank" rel="noopener noreferrer">
+            Catálogo para Eventos <FontAwesomeIcon icon={faWebAwesome} />
+          </Linkinho>
+        </Card>
+
+        <Card>
+          <Linkinho href="https://www.heyzine.com/flip-book/30ec570106.html" target="_blank" rel="noopener noreferrer">
+            Catálogo de Produtos <FontAwesomeIcon icon={faWebAwesome} />
+          </Linkinho>
+        </Card>
+
+      </CenterContainer>
+    </LandingPageContainer>
+  </>);
 };
 
 export default App;
