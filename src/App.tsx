@@ -1,11 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faInstagram, faLinkedin, faTiktok, faWebAwesome } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram, faTiktok, faWebAwesome } from '@fortawesome/free-brands-svg-icons';
 import styled from 'styled-components';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { ReactComponent as LogoSVG } from "./assets/aurorabamboo-rounded-icon.svg"
 import {GlobalStyle} from "./globalStyles";
-import { url } from 'inspector';
 
 const LandingPageContainer = styled.div`
   display: flex;
@@ -119,6 +117,12 @@ const App: React.FC = () => {
           </IconRow>
         </Card>
         
+        <Card>
+          <Linkinho href="https://aurorabamboo.lojavirtualnuvem.com.br/" target="_blank" rel="noopener noreferrer">
+            Acesse nossa Loja Virtual! <FontAwesomeIcon icon={faWebAwesome} />
+          </Linkinho>
+        </Card>
+
         <Card>
           <Linkinho href="https://www.heyzine.com/flip-book/bdb7ef35ab.html" target="_blank" rel="noopener noreferrer">
             Catálogo para Eventos <FontAwesomeIcon icon={faWebAwesome} />
